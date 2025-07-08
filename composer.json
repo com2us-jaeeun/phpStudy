@@ -1,0 +1,9 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Server\\": "src/Server",
+      "Background\\": "src/Background",
+      "App\\": "src/App"
+    }
+  }
+}
