@@ -1,10 +1,15 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use App\Services\ProductService;
+use App\Models\MemoryProductRepository;
+use App\Models\Product;
 
-$service = new ProductService();
-$product = $service->getProduct(1);
+$product = new Product();
+$product->id = 1;
+$product->name = "삼겹살";
 
-echo $product->id . ' : ' . $product->name . PHP_EOL;
+$repo = MemoryProductRepository::getInstance();
+$repo->save($product);
+
+echo $repo->findById(1)->name; // 삼겹살
